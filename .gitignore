@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 sendgrid.env
 .DS_Store
+chromedriver

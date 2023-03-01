@@ -1,0 +1,9 @@
+python-dotenv
+pandas
+numpy
+requests
+bs4
+lxml
+selenium
+matplotlib
+webdriver-manager
