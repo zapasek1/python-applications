@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, render_template, flash, redirect, url_for, jsonify, request
 from forms import RegistrationForm, LoginForm
 from flask_sqlalchemy import SQLAlchemy
 
@@ -72,7 +72,7 @@ def login():
 def get_api_product(id):
     product = Product.query.get_or_404(id)
     # return JSON object
-    return {
+    return jsonify({
         'id': product.id,
         'name': product.name,
         'discountPrice': product.discountPrice,
@@ -80,8 +80,13 @@ def get_api_product(id):
         'stock': product.stock,
         'description': product.description,
         'image': product.image
-    }
+    })
 
+@app.route('/search', methods=['GET'])
+def search():
+    args = request.args
+    print(args)
+    return args
 
 
 if __name__ == '__main__':  
