@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Products Page</title>
+  </head>
+  <body>
+    <h1>All Products Page</h1>
+    <div class="grid grid-cols-4 gap-4">
+
+    {% for product in products %}
+      <div class="bg-slate-100 rounded-xl p-8">
+        <h2 class="font-bold">{{ product.name }}</h2>
+
+        {% if product.discountPrice %}
+        <p style="text-decoration: line-through">Price: {{ product.price }}$</p>
+        <p style="color: red">New Price: {{ product.discountPrice }}$</p>
+        {% else %}
+        <p>Price: {{ product.price }}$</p>
+        {% endif %}
+
+        <p>Stock: {{ product.stock }}</p>
+        <a href="/products/{{ product.id }}" class="font-medium text-sky-500">Read More</a>
+      </div>
+    {% endfor %}
+    
+  </div>
+  </body>
+</html>

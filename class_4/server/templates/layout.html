@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if title %}
+      <title>My Store | {{ title }}</title>
+    {% else %}
+      <title>My Store</title>
+    {% endif %}
+  </head>
+  <body>
+    <main class="container mx-auto">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="bg-{{ category }}-100 border-t border-b border-{{ category }}-500 text-{{ category }}-700 px-4 py-3" role="alert">
+              <p class="font-bold">Success</p>
+              <p class="text-sm">{{ message }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %} {% endblock %}
+    </main>
+  </body>
+</html>

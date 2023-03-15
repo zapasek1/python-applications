@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1 class="text-2xl font-bold pb-8 pt-8">Register</h1>
+  <div class="max-w-md rounded overflow-hidden shadow-lg p-8 mx-auto">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset>
+        <div class="mb-4">
+          {{ form.email.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+          {{ form.email(size=32, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+        </div>
+        <div class="mb-4">
+          {{ form.password.label(class="block text-gray-700 text-sm font-bold mb-2") }}
+          {{ form.password(size=32, class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline") }}
+        </div>
+        <div class="mb-4">
+          {{ form.submit(class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline") }}
+        </div>
+      </fieldset>
+    </form>
+    <div class="text-center pt-8">
+      <a href="{{ url_for('register') }}" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Do not have an account?</a>
+    </div>
+  </div>
+{% endblock content %}
